@@ -1,0 +1,27 @@
+# List all "Miscellaneous" data sources.
+ 
+PREFIX : <http://www.connaissance.io/onto/data/dataprov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+# PREFIX owl: <http://www.w3.org/2002/07/owl#>
+# PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
+# PREFIX prov: <http://www.w3.org/ns/prov#>
+# PREFIX schemax: <http://topbraid.org/schemax/>
+# PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+# PREFIX xhtm: <http://www.w3.org/1999/xhtml>
+
+SELECT ?source ?url ?description
+
+# FROM <http://www.connaissance.io/onto/data/data-source-instances.ttl>
+
+WHERE {
+	?s a :Miscellaneous_Data ;
+				rdfs:label ?source ;
+				schema:mainEntityOfPage ?url ;
+				dcterms:description ?description .
+}
