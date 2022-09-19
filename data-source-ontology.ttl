@@ -1,4 +1,4 @@
-# baseURI: http://www.connaissance.io/onto/data/dataprov
+# baseURI: https://www.connaissance.io/dataprov
 # imports: http://purl.org/dc/terms/
 # imports: http://topbraid.org/schema/schema-single-range
 # imports: http://www.loc.gov/premis/rdf/v3/
@@ -8,8 +8,8 @@
 # imports: http://xmlns.com/foaf/0.1/
 # prefix: dataprov
 
-@prefix : <http://www.connaissance.io/onto/data/dataprov#> .
-@prefix dataprov: <http://www.connaissance.io/onto/data/dataprov#> .
+@prefix : <https://www.connaissance.io/dataprov#> .
+@prefix dataprov: <https://www.connaissance.io/dataprov#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
@@ -22,13 +22,13 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://www.connaissance.io/onto/data/dataprov>
+<https://www.connaissance.io/dataprov>
   rdf:type owl:Ontology ;
   dcterms:modified "2020-03-10"^^xsd:date ;
   dcterms:publisher dataprov:M_Lane ;
   dcterms:title "Data Provenance Taxonomy" ;
   premis:version "1.1" ;
-  rdfs:comment "Open data provenance on the web." ;
+  rdfs:comment "Provenance information of open data on the web." ;
   owl:imports dcterms: ;
   owl:imports <http://topbraid.org/schema/schema-single-range> ;
   owl:imports premis: ;
@@ -75,6 +75,18 @@ dataprov:Biomedical_Data
   rdf:type owl:Class ;
   rdfs:label "Biomedical Data" ;
   rdfs:subClassOf dataprov:Stem_Data ;
+.
+dataprov:Biotech_Data
+  rdf:type owl:Class ;
+  rdfs:label "Biotechnology Data" ;
+  rdfs:subClassOf dataprov:Stem_Data ;
+.
+dp:Canada_City_Government
+  rdf:type owl:Class ;
+  dcterms:description "City data from Canada." ;
+  rdfs:label "Canada City Data" ;
+  rdfs:subClassOf dp:City_Data ;
+  rdfs:subClassOf dp:Other_Government_Data ;
 .
 dataprov:Census_Data
   rdf:type owl:Class ;

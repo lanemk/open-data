@@ -1,10 +1,10 @@
-# baseURI: http://www.connaissance.io/onto/data/data-source
-# imports: http://www.connaissance.io/onto/data/dataprov
+# baseURI: https://www.connaissance.io/datasource
+# imports: https://www.connaissance.io/dataprov
 
-@prefix : <http://www.connaissance.io/onto/data/data-source#> .
+@prefix : <https://www.connaissance.io/datasource#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dp: <http://www.connaissance.io/onto/data/dataprov#> .
+@prefix dp: <https://www.connaissance.io/dataprov#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -13,98 +13,101 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://www.connaissance.io/onto/data/data-source>
+<http://www.connaissance.io/datasource>
   rdf:type schema:Dataset ;
   rdf:type owl:Ontology ;
-  dcterms:modified "2019-09-13" ;
-  rdfs:comment "Created by M Lane, Portland, Oregon" ;
-  owl:imports <http://www.connaissance.io/onto/data/dataprov> ;
+  dcterms:modified "2022-09-07" ;
+  rdfs:comment "Created by M Lane" ;
+  owl:imports <https://www.connaissance.io/dataprov> ;
   owl:versionInfo "Open Data Provenance Dataset v1.0" ;
 .
+
+###  https://connaissance.io/onto/data/ports#singapore_opendata
+:singapore_opendata rdf:type owl:NamedIndividual ,
+                             portals:DataPortals ;
+                    dcterms:description "Catalog for the Singapore OpenData Discovering data, inspiring ideas" ;
+                    dcterms:language "en" ;
+                    dcterms:publisher "Government of Singapore" ;
+                    dcterms:title "Singapore OpenData" ;
+                    schema:author "Government of Singapore" ;
+                    geo:lat_long "1.2904527,103.852038" ;
+                    portals:country "SG" ;
+                    portals:hasURI "http://data.gov.sg/" ;
+                    portals:licenseID "other-closed" ;
+                    portals:metadata_created "2011-06-27T18:16:35.45Z" ;
+                    portals:place "Singapore" ;
+                    portals:portal_URI :singapore_opendata ;
+                    portals:status "active" ;
+                    portals:tags "ctic" .
+  
 dp:AWS_Data_Registry
   rdf:type dp:Miscellaneous_Data ;
   dcterms:description "AWS registry enables discovery and sharing of datasets that are available via AWS resources." ;
-  schema:mainEntityOfPage "https://registry.opendata.aws/"^^xsd:anyURI ;
-  rdfs:label "Registry of Open Data on AWS" ;
+  schema:mainEntityOfPage "https://aws.amazon.com/marketplace/search?ref_=mp_nav_category_d5a43d97-558f-4be7-8543-cce265fe6d9d&FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE&CONTRACT_TYPE=OPEN_DATA_LICENSES&filters=FULFILLMENT_OPTION_TYPE%2CCONTRACT_TYPE"^^xsd:anyURI ;
+  rdfs:label "AWS Marketplace Registry of Open Data" ;
 .
 dp:Allerdale_Open_Data
   rdf:type dp:UK_Data ;
   dcterms:description "Data is available in electronic format for re-use on website, etc." ;
   schema:mainEntityOfPage "https://www.allerdale.gov.uk/en/data-protection-and-freedom-information/open-data/"^^xsd:anyURI ;
-  rdfs:label "Statistics Canada" ;
+  rdfs:label "Allerdale Borough Council Open Data" ;
 .
-dp:Ann_Arbor_Open_Data
-  rdf:type dp:US_City_Data ;
-  schema:mainEntityOfPage "http://www.a2gov.org/services/data/Pages/default.aspx"^^xsd:anyURI ;
-  rdfs:label "City of Ann Arbor's Open Data Catalog" ;
-.
-dp:Austin_Open_Data
-  rdf:type dp:US_City_Data ;
-  schema:mainEntityOfPage "https://data.austintexas.gov/"^^xsd:anyURI ;
-  rdfs:label "Open Data | City of Austin Texas" ;
-.
-dp:Awesome_Data
-  rdf:type dp:Miscellaneous_Data ;
-  dcterms:description "List of high quality, topic-centric public data sources." ;
-  schema:mainEntityOfPage "https://github.com/awesomedata/awesome-public-datasets"^^xsd:anyURI ;
-  rdfs:label "Awesome Data (github)" ;
-.
-dp:Boulder_Open_Data_Catalog
-  rdf:type dp:US_City_Data ;
-  schema:mainEntityOfPage "https://bouldercolorado.gov/open-data"^^xsd:anyURI ;
-  rdfs:label "City of Boulder Open Data Catalog" ;
-.
-dp:Brazilian_Open_Data
-  rdf:type dp:Latin_America_Data ;
-  rdf:type dp:Other_Government_Data ;
-  dcterms:description "The Brazilian Open Data Portal is the government-provided tool for everyone to find and use public data and information. The portal aims to provide data on various topics of public administration." ;
-  schema:mainEntityOfPage "http://dados.gov.br/dataset"^^xsd:anyURI ;
-  rdfs:label "Brazilian Open Data Portal" ;
-.
-dp:Brisbane_Datastore
-  rdf:type dp:Australia_City_Data ;
-  schema:mainEntityOfPage "https://www.data.brisbane.qld.gov.au/"^^xsd:anyURI ;
-  rdfs:label "Brisbane Datastore" ;
-.
+# dp:Ann_Arbor_Open_Data
+#   rdf:type dp:US_City_Data ;
+#   schema:mainEntityOfPage "http://www.a2gov.org/services/data/Pages/default.aspx"^^xsd:anyURI ;
+#   rdfs:label "City of Ann Arbor's Open Data Catalog" ;
+# .
+# dp:Austin_Open_Data
+#   rdf:type dp:US_City_Data ;
+#   schema:mainEntityOfPage "https://data.austintexas.gov/"^^xsd:anyURI ;
+#   rdfs:label "Open Data | City of Austin Texas" ;
+# .
+# dp:Boulder_Open_Data_Catalog
+#   rdf:type dp:US_City_Data ;
+#   schema:mainEntityOfPage "https://bouldercolorado.gov/open-data"^^xsd:anyURI ;
+#   rdfs:label "City of Boulder Open Data Catalog" ;
+# .
+# dp:Brazilian_Open_Data
+#   rdf:type dp:Latin_America_Data ;
+#   rdf:type dp:Other_Government_Data ;
+#   dcterms:description "The Brazilian Open Data Portal is the government-provided tool for everyone to find and use public data and information. The portal aims to provide data on various topics of public administration." ;
+#   schema:mainEntityOfPage "http://dados.gov.br/dataset"^^xsd:anyURI ;
+#   rdfs:label "Brazilian Open Data Portal" ;
+# .
+# dp:Brisbane_Datastore
+#   rdf:type dp:Australia_City_Data ;
+#   schema:mainEntityOfPage "https://www.data.brisbane.qld.gov.au/"^^xsd:anyURI ;
+#   rdfs:label "Brisbane Datastore" ;
+# .
 dp:California_Open_Data
   rdf:type dp:US_State_Gov_Data ;
   dcterms:description "California statewide open data portal created to improve collaboration, expand transparency and lead to innovation and increased effectiveness." ;
   schema:mainEntityOfPage "http://data.ca.gov/"^^xsd:anyURI ;
   rdfs:label "California Open Data" ;
 .
-dp:Canada_City_Government
-  rdf:type owl:Class ;
-  dcterms:description "City data from Canada." ;
-  rdfs:label "Canada City Data" ;
-  rdfs:subClassOf dp:City_Data ;
-  rdfs:subClassOf dp:Other_Government_Data ;
-.
-dp:CivicApps_Portland_Datasets
-  rdf:type dp:US_City_Data ;
-  schema:mainEntityOfPage "http://www.civicapps.org/datasets"^^xsd:anyURI ;
-  rdfs:label "CivicApps for Portland Datasets" ;
-.
-dp:Colorado_Info_Marketplace
-  rdf:type dp:US_State_Gov_Data ;
-  dcterms:description "Colorado statewide open data portal." ;
-  schema:mainEntityOfPage "https://data.colorado.gov/"^^xsd:anyURI ;
-  rdfs:label "Colorado Info Marketplace" ;
-.
+# dp:CivicApps_Portland_Datasets
+#   rdf:type dp:US_City_Data ;
+#   schema:mainEntityOfPage "http://www.civicapps.org/datasets"^^xsd:anyURI ;
+#   rdfs:label "CivicApps for Portland Datasets" ;
+# .
+# dp:Colorado_Info_Marketplace
+#   rdf:type dp:US_State_Gov_Data ;
+#   dcterms:description "Colorado statewide open data portal." ;
+#   schema:mainEntityOfPage "https://data.colorado.gov/"^^xsd:anyURI ;
+#   rdfs:label "Colorado Info Marketplace" ;
+# .
 dp:Connecticut_Open_Data
   rdf:type dp:US_State_Gov_Data ;
   dcterms:description "Connecticut statewide open data portal." ;
   schema:mainEntityOfPage "https://data.ct.gov/"^^xsd:anyURI ;
   rdfs:label "Connecticut Open Data" ;
 .
-dp:DBpedia_Datasets
-  rdf:type dp:Miscellaneous_Data ;
-  dcterms:description "DBpedia allows one to make sophisticated queries against Wikipedia, and link to other data sets on the Web to Wikipedia data. " ;
-  schema:mainEntityOfPage "https://wiki.dbpedia.org/develop/datasets"^^xsd:anyURI ;
-  rdfs:label "DBpedia Datasets" ;
-.
-dp:DataSourceEntity
-  rdfs:comment "NOTE: Each resource needs a description." ;
-.
+# dp:DBpedia_Datasets
+#   rdf:type dp:Miscellaneous_Data ;
+#   dcterms:description "DBpedia allows one to make sophisticated queries against Wikipedia, and link to other data sets on the Web to Wikipedia data. " ;
+#   schema:mainEntityOfPage "https://wiki.dbpedia.org/develop/datasets"^^xsd:anyURI ;
+#   rdfs:label "DBpedia Datasets" ;
+# .
 dp:Denver_Open_Data_Catalog
   rdf:type dp:US_City_Data ;
   schema:mainEntityOfPage "https://www.denvergov.org/opendata"^^xsd:anyURI ;
@@ -113,7 +116,7 @@ dp:Denver_Open_Data_Catalog
 dp:DougCo_Hub
   rdf:type dp:US_County_Data ;
   schema:mainEntityOfPage "https://www.larimer.org/it/services/gis/digital-data"^^xsd:anyURI ;
-  rdfs:label "DougCo Hub (Douglas County, CO)" ;
+  rdfs:label "Larimer County GIS Digital Data" ;
 .
 dp:EC_Energy_Data
   rdf:type dp:Energy_Data ;
@@ -147,28 +150,28 @@ dp:GEO_DataSet
   schema:mainEntityOfPage "https://www.ncbi.nlm.nih.gov/sites/GDSbrowser/"^^xsd:anyURI ;
   rdfs:label "GEO DataSet Browser: Gene Expression Omnibus" ;
 .
-dp:GHDx
-  rdf:type dp:Health_Data ;
-  rdf:type dp:International_Data ;
-  dcterms:description "The world’s most comprehensive catalog of surveys, censuses, vital statistics, and other health-related data." ;
-  schema:mainEntityOfPage "https://www.ncbi.nlm.nih.gov/guide/data-software/"^^xsd:anyURI ;
-  rdfs:label "Global Health Data Exchange" ;
-.
+# dp:GHDx
+#   rdf:type dp:Health_Data ;
+#   rdf:type dp:International_Data ;
+#   dcterms:description "The world’s most comprehensive catalog of surveys, censuses, vital statistics, and other health-related data." ;
+#   schema:mainEntityOfPage "https://www.ncbi.nlm.nih.gov/guide/data-software/"^^xsd:anyURI ;
+#   rdfs:label "Global Health Data Exchange" ;
+# .
 dp:GeoNames
   rdf:type dp:Geographic_Data ;
-  dcterms:description "The GeoNames geographical database covers all countries and contains over eleven million placenames that are available for download free of charge." ;
+  dcterms:description "The GeoNames geographical database covers all countries and place names, and are available for free or fee-based download." ;
   schema:mainEntityOfPage "http://www.geonames.org/"^^xsd:anyURI ;
   rdfs:label "GeoNames" ;
 .
 dp:GeoNames_DataSources
   rdf:type dp:Geographic_Data ;
-  dcterms:description "The GeoNames geographical database covers all countries and contains over eleven million placenames that are available for download free of charge." ;
+  dcterms:description "The GeoNames Data Sources database covers all countries and placenames that are available for download free of charge." ;
   schema:mainEntityOfPage "http://www.geonames.org/datasources/"^^xsd:anyURI ;
-  rdfs:label "GeoNames" ;
+  rdfs:label "GeoNames Data Sources" ;
 .
 dp:Google_Dataset_Search
   rdf:type dp:Miscellaneous_Data ;
-  dcterms:description "Dataset Search enables users to find datasets stored across the Web through a simple keyword search." ;
+  dcterms:description "Dataset Search lets users find datasets stored across the Web through simple keyword search." ;
   schema:mainEntityOfPage "https://datasetsearch.research.google.com/"^^xsd:anyURI ;
   rdfs:label "Google Dataset Search" ;
 .
@@ -180,7 +183,7 @@ dp:Google_Ngram_Viewer
 .
 dp:Google_Public_Data
   rdf:type dp:Miscellaneous_Data ;
-  dcterms:description "Google public data source repository; provides interactive visualization interface for exploring datasets." ;
+  dcterms:description "Google public data source repository; provides means to upload datasets, with interactive visualization for exploring datasets." ;
   schema:mainEntityOfPage "https://www.google.com/publicdata/directory"^^xsd:anyURI ;
   rdfs:label "Google Public Data Explorer" ;
 .
