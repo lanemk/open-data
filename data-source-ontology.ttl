@@ -1,4 +1,4 @@
-# baseURI: https://www.connaissance.io/dataprov
+# baseURI: https://www.connaissance.io/data/dp
 # imports: http://purl.org/dc/terms/
 # imports: http://topbraid.org/schema/schema-single-range
 # imports: http://www.loc.gov/premis/rdf/v3/
@@ -6,10 +6,8 @@
 # imports: http://www.w3.org/2004/02/skos/core
 # imports: http://www.w3.org/ns/prov#
 # imports: http://xmlns.com/foaf/0.1/
-# prefix: dataprov
 
-@prefix : <https://www.connaissance.io/dataprov#> .
-@prefix dataprov: <https://www.connaissance.io/dataprov#> .
+@prefix : <https://www.connaissance.io/data/dp#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
@@ -21,13 +19,15 @@
 @prefix schema: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@base <https://www.connaissance.io/data/dp> .
 
-<https://www.connaissance.io/dataprov>
+<https://www.connaissance.io/data/dp>
   rdf:type owl:Ontology ;
   dcterms:modified "2020-03-10"^^xsd:date ;
-  dcterms:publisher dataprov:M_Lane ;
-  dcterms:title "Data Provenance Taxonomy" ;
-  premis:version "1.1" ;
+  dcterms:publisher :M_Lane ;
+  dcterms:title "Open Data Provenance Ontology" ;
+  premis:version "1.2" ;
   rdfs:comment "Provenance information of open data on the web." ;
   owl:imports dcterms: ;
   owl:imports <http://topbraid.org/schema/schema-single-range> ;
@@ -36,50 +36,52 @@
   owl:imports <http://www.w3.org/2004/02/skos/core> ;
   owl:imports prov: ;
   owl:imports foaf: ;
+  vann:preferredNamespacePrefix "dp" ;
+  vann:preferredNamespaceUri "https://www.connaissance.io/data/dp#" ;
 .
 
-dataprov:Africa_Data
+:Africa_Data
   rdf:type owl:Class ;
   rdfs:label "Africa Data" ;
-  rdfs:subClassOf dataprov:International_Data ;
+  rdfs:subClassOf :International_Data ;
 .
-dataprov:Agricultural_Data
+:Agricultural_Data
   rdf:type owl:Class ;
   rdfs:label "Food & Agriculture Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Asia_Data
+:Asia_Data
   rdf:type owl:Class ;
   rdfs:label "Asia Data" ;
-  rdfs:subClassOf dataprov:International_Data ;
+  rdfs:subClassOf :International_Data ;
 .
-dataprov:Astronomy_Data
+:Astronomy_Data
   rdf:type owl:Class ;
   rdfs:label "Astronomy Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:Australia_City_Data
+:Australia_City_Data
   rdf:type owl:Class ;
   dcterms:description "City data from Australia." ;
   rdfs:label "Australia City Data" ;
-  rdfs:subClassOf dataprov:Australia_Data ;
-  rdfs:subClassOf dataprov:City_Data ;
-  rdfs:subClassOf dataprov:Other_Government_Data ;
+  rdfs:subClassOf :Australia_Data ;
+  rdfs:subClassOf :City_Data ;
+  rdfs:subClassOf :Other_Government_Data ;
 .
-dataprov:Australia_Data
+:Australia_Data
   rdf:type owl:Class ;
   rdfs:label "Australia Data" ;
-  rdfs:subClassOf dataprov:International_Data ;
+  rdfs:subClassOf :International_Data ;
 .
-dataprov:Biomedical_Data
+:Biomedical_Data
   rdf:type owl:Class ;
   rdfs:label "Biomedical Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:Biotech_Data
+:Biotech_Data
   rdf:type owl:Class ;
   rdfs:label "Biotechnology Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
 dp:Canada_City_Government
   rdf:type owl:Class ;
@@ -88,38 +90,38 @@ dp:Canada_City_Government
   rdfs:subClassOf dp:City_Data ;
   rdfs:subClassOf dp:Other_Government_Data ;
 .
-dataprov:Census_Data
+:Census_Data
   rdf:type owl:Class ;
   rdfs:label "Census Data" ;
-  rdfs:subClassOf dataprov:Demographic_Data ;
+  rdfs:subClassOf :Demographic_Data ;
 .
-dataprov:City_Data
+:City_Data
   rdf:type owl:Class ;
   dcterms:description "City data." ;
   rdfs:label "U.S. City Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Climate_Data
+:Climate_Data
   rdf:type owl:Class ;
   rdfs:label "Climate Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:County_Data
+:County_Data
   rdf:type owl:Class ;
   dcterms:description "County level, perhaps parish or designated regional municipality." ;
   rdfs:label "County Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Crime_Data
+:Crime_Data
   rdf:type owl:Class ;
   rdfs:label "Criminology & Criminal Justice Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:DataSourceConcepts
+:DataSourceConcepts
   rdf:type skos:ConceptScheme ;
   rdfs:label "Data Source Concepts" ;
 .
-dataprov:DataSourceEntity
+:DataSourceEntity
   rdf:type owl:Class ;
   schema:catalog schema:DataCatalog ;
   schema:contactPoint schema:ContactPoint ;
@@ -140,292 +142,301 @@ dataprov:DataSourceEntity
   rdfs:subClassOf skos:Concept ;
   prov:agent prov:Agent ;
 .
-dataprov:Demographic_Data
+:Demographic_Data
   rdf:type owl:Class ;
   rdfs:comment "Demographic statistics" ;
   rdfs:label "Demographic Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Economic_Data
+:Economic_Data
   rdf:type owl:Class ;
   rdfs:comment "Commerce & financials related data." ;
   rdfs:label "Economic & Business Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Education_Data
+:Education_Data
   rdf:type owl:Class ;
   rdfs:label "Education Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Energy_Data
+:Energy_Data
   rdf:type owl:Class ;
   rdfs:label "Energy Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:Environmental_Data
+:Environmental_Data
   rdf:type owl:Class ;
   rdfs:label "Environmental Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:Europe_Data
+:Europe_Data
   rdf:type owl:Class ;
   rdfs:label "Europe Data" ;
-  rdfs:subClassOf dataprov:International_Data ;
+  rdfs:subClassOf :International_Data ;
 .
-dataprov:Forestry_Data
+:Forestry_Data
   rdf:type owl:Class ;
   rdfs:label "Forestry Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:Genomic_Data
+:Genomic_Data
   rdf:type owl:Class ;
   rdfs:label "Genome Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:Geographic_Data
+:Geographic_Data
   rdf:type owl:Class ;
   rdfs:label "Geographic Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:Geoscience_Data
+:Geoscience_Data
   rdf:type owl:Class ;
   rdfs:label "Geoscience Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:Health_Data
+:Health_Data
   rdf:type owl:Class ;
   rdfs:label "Health Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:International_Data
+:International_Data
   rdf:type owl:Class ;
   rdfs:label "International Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Latin_America_Data
+:Latin_America_Data
   rdf:type owl:Class ;
   rdfs:label "Latin America Data" ;
-  rdfs:subClassOf dataprov:International_Data ;
+  rdfs:subClassOf :International_Data ;
 .
-dataprov:M_Lane
+:M_Lane
   rdf:type prov:Person ;
   dcterms:modified "2020-03-10"^^xsd:date ;
   rdfs:label "M Lane" ;
   foaf:firstName "Mike" ;
   foaf:lastName "Lane" ;
   foaf:title "Knowledge Engineer" ;
-  foaf:workplaceHomepage <http://www.connaissance.io> ;
+  foaf:workplaceHomepage "http://www.connaissance.io"^^xsd:anyURI ;
 .
-dataprov:Machine_Learning_Data
+:Machine_Learning_Data
   rdf:type owl:Class ;
   rdfs:label "Physics Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:Miscellaneous_Data
+:Miscellaneous_Data
   rdf:type owl:Class ;
   rdfs:label "Miscellaneous Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:National_Data
+:National_Data
   rdf:type owl:Class ;
   rdfs:label "International Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Natl_Intelligence_Data
+:Natl_Intelligence_Data
   rdf:type owl:Class ;
   rdfs:label "National Intelligence Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Non_Governmental_Data
+:Non_Governmental_Data
   rdf:type owl:Class ;
   rdfs:comment "Official data from non-governmental sources, including NGOs or other organizations similarly classified." ;
   rdfs:label "Non Government Data (NGO)" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:North_America_Data
+:North_America_Data
   rdf:type owl:Class ;
   rdfs:label "North America Data" ;
-  rdfs:subClassOf dataprov:International_Data ;
+  rdfs:subClassOf :International_Data ;
 .
-dataprov:Oceanic_Data
+:Oceanic_Data
   rdf:type owl:Class ;
   rdfs:label "Oceanic Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:Other_Government_Data
+:Other_Government_Data
   rdf:type owl:Class ;
   rdfs:comment "Official data from foreign government sources." ;
   rdfs:label "Non US Government Data" ;
-  rdfs:subClassOf dataprov:National_Data ;
+  rdfs:subClassOf :National_Data ;
 .
-dataprov:Physics_Data
+:Physics_Data
   rdf:type owl:Class ;
   rdfs:label "Physics Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:Scholarly_Data
+:Scholarly_Data
   rdf:type owl:Class ;
   rdfs:comment "Data oriented towards scholarly or academic research." ;
   rdfs:label "Scholarly Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Spain_City_Data
+:Spain_City_Data
   rdf:type owl:Class ;
   dcterms:description "City data from Spain." ;
   rdfs:label "Spain City Data" ;
-  rdfs:subClassOf dataprov:City_Data ;
-  rdfs:subClassOf dataprov:Other_Government_Data ;
+  rdfs:subClassOf :City_Data ;
+  rdfs:subClassOf :Other_Government_Data ;
 .
-dataprov:Sports_Data
+:Sports_Data
   rdf:type owl:Class ;
   rdfs:label "Sports Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Stem_Data
+:Stem_Data
   rdf:type owl:Class ;
   dcterms:description "Science, technology, engineering, mathematics data." ;
   rdfs:label "STEM Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Transportation_Data
+:Transportation_Data
   rdf:type owl:Class ;
   rdfs:label "Transportation Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:US_Agricultural_Data
+:US_Agricultural_Data
   rdf:type owl:Class ;
   rdfs:label "U.S. Food & Agriculture Data" ;
-  rdfs:subClassOf dataprov:US_Federal_Gov_Data ;
+  rdfs:subClassOf :US_Federal_Gov_Data ;
 .
-dataprov:US_Census_Data
+:US_Census_Data
   rdf:type owl:Class ;
   rdfs:label "U.S. Census Data" ;
-  rdfs:subClassOf dataprov:Census_Data ;
-  rdfs:subClassOf dataprov:US_Federal_Gov_Data ;
+  rdfs:subClassOf :Census_Data ;
+  rdfs:subClassOf :US_Federal_Gov_Data ;
 .
-dataprov:US_City_Data
+:US_City_Data
   rdf:type owl:Class ;
   dcterms:description "City data." ;
   rdfs:label "U.S. City Data" ;
-  rdfs:subClassOf dataprov:City_Data ;
-  rdfs:subClassOf dataprov:North_America_Data ;
-  rdfs:subClassOf dataprov:US_State_Gov_Data ;
+  rdfs:subClassOf :City_Data ;
+  rdfs:subClassOf :North_America_Data ;
+  rdfs:subClassOf :US_State_Gov_Data ;
 .
-dataprov:US_County_Data
+:US_County_Data
   rdf:type owl:Class ;
   dcterms:description "County level, perhaps parish or designated regional municipality." ;
   rdfs:label "U.S. County Data" ;
-  rdfs:subClassOf dataprov:County_Data ;
-  rdfs:subClassOf dataprov:US_State_Gov_Data ;
+  rdfs:subClassOf :County_Data ;
+  rdfs:subClassOf :US_State_Gov_Data ;
 .
-dataprov:US_Federal_Gov_Data
+:US_Federal_Gov_Data
   rdf:type owl:Class ;
   rdfs:label "U.S. Federal Government Data" ;
-  rdfs:subClassOf dataprov:US_Government_Data ;
-  owl:disjointWith dataprov:US_State_Gov_Data ;
+  rdfs:subClassOf :US_Government_Data ;
+  owl:disjointWith :US_State_Gov_Data ;
 .
-dataprov:US_Geological_Survey_Data
+:US_Geological_Survey_Data
   rdf:type owl:Class ;
   rdfs:label "U.S. Food & Agriculture Data" ;
-  rdfs:subClassOf dataprov:US_Federal_Gov_Data ;
+  rdfs:subClassOf :US_Federal_Gov_Data ;
 .
-dataprov:US_Government_Data
+:US_Government_Data
   rdf:type owl:Class ;
   rdfs:label "US Government Data" ;
-  rdfs:subClassOf dataprov:National_Data ;
+  rdfs:subClassOf :National_Data ;
 .
-dataprov:US_IRS_Data
+:US_IRS_Data
   rdf:type owl:Class ;
   rdfs:label "U.S. Internal Revenue Service Data" ;
-  rdfs:subClassOf dataprov:US_Federal_Gov_Data ;
+  rdfs:subClassOf :US_Federal_Gov_Data ;
 .
-dataprov:US_Intelligence_Data
+:US_Intelligence_Data
   rdf:type owl:Class ;
   rdfs:label "U.S. Intelligence Data" ;
-  rdfs:subClassOf dataprov:Natl_Intelligence_Data ;
-  rdfs:subClassOf dataprov:US_Federal_Gov_Data ;
+  rdfs:subClassOf :Natl_Intelligence_Data ;
+  rdfs:subClassOf :US_Federal_Gov_Data ;
 .
-dataprov:US_Labor_Stats
+:US_Labor_Stats
   rdf:type owl:Class ;
   rdfs:label "U.S. Bureau of Labor Statistics" ;
-  rdfs:subClassOf dataprov:US_Federal_Gov_Data ;
+  rdfs:subClassOf :US_Federal_Gov_Data ;
 .
-dataprov:US_NASA_Data
+:US_NASA_Data
   rdf:type owl:Class ;
   rdfs:label "U.S. NASA Data" ;
-  rdfs:subClassOf dataprov:Census_Data ;
-  rdfs:subClassOf dataprov:US_Federal_Gov_Data ;
+  rdfs:subClassOf :Census_Data ;
+  rdfs:subClassOf :US_Federal_Gov_Data ;
 .
-dataprov:US_State_Gov_Data
+:US_State_Gov_Data
   rdf:type owl:Class ;
   rdfs:label "U.S. State Government Data" ;
-  rdfs:subClassOf dataprov:US_Government_Data ;
-  owl:disjointWith dataprov:US_Federal_Gov_Data ;
+  rdfs:subClassOf :US_Government_Data ;
+  owl:disjointWith :US_Federal_Gov_Data ;
 .
-dataprov:US_Transportation_Stats
+:US_Transportation_Stats
   rdf:type owl:Class ;
   rdfs:label "U.S. Bureau of Labor Statistics" ;
-  rdfs:subClassOf dataprov:Transportation_Data ;
-  rdfs:subClassOf dataprov:US_Federal_Gov_Data ;
+  rdfs:subClassOf :Transportation_Data ;
+  rdfs:subClassOf :US_Federal_Gov_Data ;
 .
-dataprov:Utilities_Data
+:Utilities_Data
   rdf:type owl:Class ;
   dcterms:description "Data related to public & private utilities." ;
   rdfs:label "Utilities Data" ;
-  rdfs:subClassOf dataprov:DataSourceEntity ;
+  rdfs:subClassOf :DataSourceEntity ;
 .
-dataprov:Weather_Data
+:Weather_Data
   rdf:type owl:Class ;
   rdfs:label "Weather Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:Wildlife_Data
+:Wildlife_Data
   rdf:type owl:Class ;
   rdfs:label "Wildlife Data" ;
-  rdfs:subClassOf dataprov:Stem_Data ;
+  rdfs:subClassOf :Stem_Data ;
 .
-dataprov:api_endpoint
+:api_endpoint
   rdf:type rdf:Property ;
+  rdfs:comment "Open Knowledge Network (OKN) datatype property" ;
   rdfs:label "api endpoint" ;
   skos:prefLabel "api endpoint" ;
 .
-dataprov:api_type
+:api_type
   rdf:type rdf:Property ;
+  rdfs:comment "Open Knowledge Network (OKN) datatype property" ;
   rdfs:label "api type" ;
   skos:prefLabel "api type" ;
 .
-dataprov:country
+:country
   rdf:type rdf:Property ;
+  rdfs:comment "Open Knowledge Network (OKN) datatype property" ;
   rdfs:label "country" ;
   skos:prefLabel "country" ;
 .
-dataprov:full_metadata_download
+:full_metadata_download
   rdf:type rdf:Property ;
+  rdfs:comment "Open Knowledge Network (OKN) datatype property" ;
   rdfs:label "full metadata download" ;
   skos:prefLabel "full metadata download" ;
 .
-dataprov:license_id
+:license_id
   rdf:type rdf:Property ;
   rdfs:label "license id" ;
+  rdfs:comment "Open Knowledge Network (OKN) datatype property" ;
   skos:prefLabel "license id" ;
 .
-dataprov:license_url
+:license_url
   rdf:type rdf:Property ;
+  rdfs:comment "Open Knowledge Network (OKN) datatype property" ;
   rdfs:label "license url" ;
   skos:prefLabel "license url" ;
 .
-dataprov:metadatacreated
+:metadatacreated
   rdf:type rdf:Property ;
+  rdfs:comment "Open Knowledge Network (OKN) datatype property" ;
   rdfs:label "metadata created" ;
   skos:prefLabel "metadata created" ;
 .
-dataprov:publisher_classification
+:publisher_classification
   rdf:type rdf:Property ;
+  rdfs:comment "Open Knowledge Network (OKN) datatype property" ;
   rdfs:label "publisher classification" ;
   skos:prefLabel "publisher classification" ;
 .
-dataprov:status
+:status
   rdf:type rdf:Property ;
+  rdfs:comment "Open Knowledge Network (OKN) datatype property" ;
   rdfs:label "status" ;
   skos:prefLabel "status" ;
 .
