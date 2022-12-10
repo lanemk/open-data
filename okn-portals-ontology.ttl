@@ -5,13 +5,16 @@
 # imports: http://www.w3.org/2004/02/skos/core
 # imports: http://www.w3.org/ns/prov#
 
-@prefix : <https://connaissance.io/onto/data/portals#> .
+@prefix portals: <https://connaissance.io/onto/data/portals#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
 
 <https://connaissance.io/onto/data/portals>
   rdf:type owl:Ontology ;
@@ -20,82 +23,87 @@
   owl:imports <http://www.w3.org/2003/01/geo/wgs84_pos> ;
   owl:imports <http://www.w3.org/2004/02/skos/core> ;
   owl:imports prov: ;
-  owl:versionInfo "Created by Mike Lane" ;
-.
-:DataPortals
+  dcterms:created "2020-01-12"^^xsd:date ;
+  dcterms:modified "2022-12-10"@en ;
+  vann:preferredNamespacePrefix "portals" ;
+  vann:preferredNamespaceUri "https://connaissance.io/onto/data/portals#" ;
+  owl:versionInfo "Version 1.1" .
+
+
+portals:DataPortals
   rdf:type owl:Class ;
   rdfs:label "Data Portals" ;
   rdfs:subClassOf <http://schema.org/DataCatalog> ;
   rdfs:subClassOf skos:Concept ;
-  skos:inScheme :DataSourceConcepts ;
+  skos:inScheme portals:DataSourceConcepts ;
   skos:prefLabel "Data Portals" ;
 .
-:DataSourceConcepts
+portals:DataSourceConcepts
   rdf:type skos:ConceptScheme ;
   rdfs:label "Data Source Concepts" ;
   skos:prefLabel "Data Source Concepts" ;
 .
-:api_endpoint
+portals:api_endpoint
   rdf:type owl:DatatypeProperty ;
   rdfs:label "API endpoint" ;
   skos:prefLabel "API endpoint" ;
 .
-:api_type
+portals:api_type
   rdf:type owl:DatatypeProperty ;
   rdfs:label "API type" ;
   skos:prefLabel "API type" ;
 .
-:country
+portals:country
   rdf:type owl:DatatypeProperty ;
   rdfs:label "country" ;
   skos:prefLabel "country" ;
 .
-:hasURI
+portals:hasURI
   rdf:type owl:DatatypeProperty ;
   rdfs:label "has URI" ;
   skos:prefLabel "has URI" ;
 .
-:licenseID
+portals:licenseID
   rdf:type owl:DatatypeProperty ;
   rdfs:label "license ID" ;
   skos:prefLabel "license ID" ;
 .
-:licenseURL
+portals:licenseURL
   rdf:type owl:DatatypeProperty ;
   rdfs:label "license URL" ;
   skos:prefLabel "license URL" ;
 .
-:metadata_created
+portals:metadata_created
   rdf:type owl:DatatypeProperty ;
   rdfs:label "metadata created" ;
   skos:prefLabel "metadata created" ;
 .
-:metadata_download
+portals:metadata_download
   rdf:type owl:DatatypeProperty ;
   rdfs:label "Full metadata download" ;
   skos:prefLabel "Full metadata download" ;
 .
-:place
+portals:place
   rdf:type owl:DatatypeProperty ;
   rdfs:label "place" ;
   skos:prefLabel "place" ;
 .
-:portal_URI
+portals:portal_URI
   rdf:type owl:DatatypeProperty ;
   rdfs:label "portal URI" ;
   skos:prefLabel "portal URI" ;
 .
-:publisherClass
+portals:publisherClass
   rdf:type owl:DatatypeProperty ;
   rdfs:label "publisher class" ;
   skos:prefLabel "publisher class" ;
 .
-:status
+portals:status
   rdf:type owl:DatatypeProperty ;
   rdfs:label "status" ;
   skos:prefLabel "status" ;
 .
-:tags
+portals:tags
   rdf:type owl:DatatypeProperty ;
   rdfs:label "tags" ;
   skos:prefLabel "tags" ;

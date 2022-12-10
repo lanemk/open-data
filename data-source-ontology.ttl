@@ -211,7 +211,8 @@ dp:Canada_City_Government
 .
 :M_Lane
   rdf:type prov:Person ;
-  dcterms:modified "2020-03-10"^^xsd:date ;
+  dcterms:modified "2022-12-04"^^xsd:date ;
+  dcterms:description "A keen and enthusiastic developer of ontologies, taxonomies, graph databases, and enterprise knowledge management systems."
   rdfs:label "M Lane" ;
   foaf:firstName "Mike" ;
   foaf:lastName "Lane" ;

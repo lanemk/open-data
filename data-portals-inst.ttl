@@ -1,7 +1,7 @@
-# baseURI: https://www.connaissance.io/datasource
+# baseURI: https://www.connaissance.io/dp-lod
 # imports: https://www.connaissance.io/dataprov
 
-@prefix : <https://www.connaissance.io/data/datasource#> .
+@prefix : <https://www.connaissance.io/dp-lod#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dp: <https://www.connaissance.io/data/dp#> .
@@ -13,18 +13,18 @@
 @prefix schema: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@base <https://www.connaissance.io/data/datasource> .
+@base <https://www.connaissance.io/dp-lod> .
 
 
-<https://www.connaissance.io/data/datasource>
+<https://www.connaissance.io/dp-lod>
   rdf:type schema:Dataset ;
-  rdf:type owl:Ontology ;
+  # rdf:type owl:Ontology ;
   dcterms:modified "2022-09-20" ;
   rdfs:comment "Created by M Lane" ;
-  owl:imports <https://www.connaissance.io/data/dp> ;
+  owl:imports <https://www.connaissance.io/dataprov> ;
   owl:versionInfo "Open Data Sources - Dataset" ;
-  vann:preferredNamespacePrefix "datasource" ;
-  vann:preferredNamespaceUri "https://www.connaissance.io/data/datasource#" ;
+  vann:preferredNamespacePrefix "dp-lod" ;
+  vann:preferredNamespaceUri "https://www.connaissance.io/dp-lod#" ;
 .
 
 ###  https://connaissance.io/onto/data/ports#singapore_opendata
@@ -474,8 +474,7 @@ dp:UN_MBS
 dp:USGS_Geoscience_Data
   rdf:type dp:Geoscience_Data ;
   rdf:type dp:US_Geological_Survey_Data ;
-  dcterms:description """A catalog of earth science data produced by the U.S. Geological Survey
-To use the data, scientific software such as a geographic information system (GIS) is required. """ ;
+  dcterms:description "A catalog of earth science data produced by the U.S. Geological Survey To use the data, scientific software such as a geographic information system (GIS) is required." ;
   schema:mainEntityOfPage "https://geo-nsdi.er.usgs.gov/"^^xsd:anyURI ;
   rdfs:label "USGS Geoscience Data Catalog" ;
 .

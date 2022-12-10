@@ -4838,9 +4838,7 @@ Enel is Italy’s largest power company, and Europe’s second listed utility by
 ###  https://connaissance.io/onto/data/ports#euskadi_net
 :euskadi_net rdf:type owl:NamedIndividual ,
                       dp:DataPortals ;
-             dcterms:description """Open Data Euskadi.
-
--The open data catalog of the Basque Government (Spain). Since 2010, April.""" ;
+             dcterms:description """Open Data Euskadi. - The open data catalog of the Basque Government (Spain). Since 2010, April.""" ;
              dcterms:language "es eu en" ;
              dcterms:publisher "Basque Government" ;
              dcterms:title "Open Data Euskadi" ;
